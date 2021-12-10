@@ -1,0 +1,22 @@
+---
+kind: pipeline
+type: docker
+name: Alex's testing pipeline
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+  - name: verify changes
+    image: alpine:latest
+    commands:
+      - pwd
+      - ls -la
+      - echo "this is testing drone"
+
+trigger:
+  branch: 
+   - feature/alex-simulation
+  event:
+   - push
